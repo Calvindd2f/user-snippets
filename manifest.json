@@ -1,11 +1,11 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "user-snippets",
+	"name": "Calvin User Snippets",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "Mimics the `User Snippets` functionality in VS Code. Detects language i use based off the markdown script block definiition as the ```<language>",
+	"author": "Calvin Bergin",
+	"authorUrl": "https://github.com/Calvindd2f",
+	"fundingUrl": "https://revolut.me/lvin",
 	"isDesktopOnly": false
 }
