@@ -1,13 +1,13 @@
-import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+// import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { promises as fs } from 'fs';
+import 'obsidian';
+import { App, Editor, MarkdownView, Modal, Notice, PluginSettingTab, Setting } from 'obsidian';
+
 
 const snippetsFile = './powershell-snippets.json';
 const snippets = JSON.parse(fs.readFile(snippetsFile, 'utf8'));
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-async function insertPowerShellSnippet(editor: Editor, snippet: any) {
-  editor.replaceSelection(snippet.body.join('\n'), 'around');
-}
 
 // The main class for the Obsidian plugin
 export default class CalvinsObsidianSnippets extends Plugin {
@@ -24,9 +24,9 @@ export default class CalvinsObsidianSnippets extends Plugin {
 
   // Open the modal with the available snippets for the given language
   async openModal(options: string[], view: MarkdownView): Promise<void> {
-    const { contentEl, titleEl, toggleButtonEl } = new Modal(this.app);
+    const { contentEl, titleEl, toggleButton } = new Modal(this.app);
     titleEl.setText('Select Snippet');
-    toggleButtonEl.setText('Cancel');
+    toggleButton.setText('Cancel');
 
     for (const option of options) {
       const button = this.createButton(option);
@@ -149,13 +149,13 @@ class SampleSettingTab extends PluginSettingTab {
 
     // Add a setting to the settings tab
     new Setting(containerEl)
-     .setName('Setting #1')
-     .setDesc('This is a description for setting #1')
-     .addText(text => text.setPlaceholder('Enter something')
-      .setValue(this.plugin.settings.mySetting)
-      .onChange(async (value) => {
-        this.plugin.settings.mySetting = value;
-        await this.plugin.saveSettings();
-      }));
+    .setName('Setting #1')
+    .setDesc('This is a description for setting #1')
+    .addText(text => text.setPlaceholder('Enter something')
+    .setValue(this.plugin.settings.mySetting)
+    .onChange(async (value) => {
+      this.plugin.settings.mySetting = value;
+      await this.plugin.saveSettings();
+    }));
   }
 }
